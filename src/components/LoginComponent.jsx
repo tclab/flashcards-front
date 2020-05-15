@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import AuthenticationService from '../../../api/todo/AuthenticationService'
+import AuthenticationService from '../api/todo/AuthenticationService'
 
 // Control component: Whenever the view is updated, 
 // the state is updated and back in the element

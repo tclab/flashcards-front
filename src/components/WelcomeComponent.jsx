@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
-import HelloWorldService from '../../../api/todo/HelloWorldService'
+import HelloWorldService from '../api/todo/HelloWorldService'
 
 class WelcomeComponent extends Component{
     constructor(props){
@@ -22,20 +22,11 @@ class WelcomeComponent extends Component{
             <>
                 <h1>Welcome!</h1>
                 <div className="container">   
-                    Welcome {this.props.match.params.name} to TODO app!!
+                    Welcome {this.props.match.params.name} to FlashMemo! app.
 
                     <br/>
-                    You can manage your todo list <Link to="/todos">here</Link>. 
+                    You can manage your flashcard list <Link to="/flashcards">here</Link>. 
                 </div>
-
-                {/* <div className="container">   
-                    <button className="btn btn-success" onClick={this.getWelcomeMessage}>Todo list</button>
-                </div> */}
-
-                {/* <div className="container">   
-                    <h1>{this.state.servicemessage}</h1>
-                </div> */}
-
             </>
 
         )

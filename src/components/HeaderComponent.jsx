@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import { withRouter } from 'react-router';
  
 
-import AuthenticationService from '../../../api/todo/AuthenticationService'
+import AuthenticationService from '../api/todo/AuthenticationService'
 
 class HeaderComponent extends Component{
     render(){
@@ -12,10 +12,10 @@ class HeaderComponent extends Component{
         return (
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div className="navbar-brand">TCLAB</div>
+                    <div className="navbar-brand">FlashMemo!</div>
                     <ul className="navbar-nav">
                         {isUserLoggedIn && <li><Link className="nav-link" to="/welcome/juan">Home</Link></li>}
-                        {isUserLoggedIn && <li><Link className="nav-link" to="/todos">Todos</Link></li>}
+                        {isUserLoggedIn && <li><Link className="nav-link" to="/flashcards">Flashcards list</Link></li>}
                     </ul>
                     <ul className="navbar-nav navbar-collapse justify-content-end">
                         {!isUserLoggedIn && <li><Link className="nav-link" to="/login">Login</Link></li>}

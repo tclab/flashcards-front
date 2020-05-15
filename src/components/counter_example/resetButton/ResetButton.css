@@ -1,0 +1,10 @@
+button {
+    font-size: 16px;
+    padding: 15px 30px;
+    color: white;
+}
+
+.reset {
+    background-color: red;
+    width: 200px;
+}

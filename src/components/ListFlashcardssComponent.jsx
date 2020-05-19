@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import TodoDataService from '../api/todo/TodoDataService'
-import AuthenticationService from '../api/todo/AuthenticationService'
+import FlashcardsDataService from '../api/FlashcardsDataService'
+import AuthenticationService from '../api/AuthenticationService'
 
 class ListTodosComponent extends Component{
     constructor(props){
@@ -17,27 +17,13 @@ class ListTodosComponent extends Component{
 
     // Caled just after the component was mounted
     componentDidMount(){
-        // console.log('componentDidMount')
         this.refreshFlashcards()
-    }
-
-    // Called just before the component is destroyed
-    componentWillUnmount(){
-        // console.log('componentWillUnmount')
-    }
-
-    // To control when the component should be rendered based on the props
-    shouldComponentUpdate(nextProps, nextState){
-        // console.log('shouldComponentUpdate')
-        // console.log(nextProps)
-        // console.log(nextState)
-        return true
     }
 
     handleDeleteBtn(id){
         let username = AuthenticationService.getLoggedInUser()
         console.log(`Id: ${id}, username: ${username}`)
-        TodoDataService.deleteTodo(username, id)
+        FlashcardsDataService.deleteFlashcard(username, id)
         .then(
             response => {
                 this.setState({
@@ -60,11 +46,11 @@ class ListTodosComponent extends Component{
 
     refreshFlashcards(){
         let username = AuthenticationService.getLoggedInUser()
-        TodoDataService.retrieveAllTodos(username)
+        FlashcardsDataService.retrieveAllFlashcards(username)
         .then(
                 response => {
-                    // console.log(response)
-                    this.setState({todos: response.data})
+                    console.log(response)
+                    this.setState({flashcards: response.data})
             }
             )
         .catch()
@@ -75,13 +61,12 @@ class ListTodosComponent extends Component{
         // console.log('render')
         return (
             <div>   
-                <h1>Flashcards list</h1>
+                <h1>Flashcards</h1>
                 {this.state.message && <div className="alert alert-success">{this.state.message}</div>}
                 <div className='container'>
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Term</th>
                                 <th>Front</th>
                                 <th>Topic</th>
                                 <th>Review</th>
@@ -92,9 +77,8 @@ class ListTodosComponent extends Component{
                             {
                                 this.state.flashcards.map(flashcard => 
                                     <tr key = {flashcard.id}>
-                                        <th>{flashcard.description}</th>
-                                        <th>{flashcard.done.toString()}</th>
-                                        <th>{flashcard.targetDate.toString()}</th>
+                                        <th>{flashcard.front}</th>
+                                        <th>{flashcard.topic}</th>
                                         <th><button className="btn btn-primary" onClick={() => this.handleReviewBtn(flashcard.id)}>Review </button></th>
                                         <th>
                                             <button className="btn btn-success" onClick={() => this.handleUpdateBtn(flashcard.id)}>Update </button>

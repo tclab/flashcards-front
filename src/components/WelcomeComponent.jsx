@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
-import HelloWorldService from '../api/todo/HelloWorldService'
-
 class WelcomeComponent extends Component{
     constructor(props){
         super(props)
@@ -11,7 +9,6 @@ class WelcomeComponent extends Component{
             servicemessage: ''
         }
 
-        this.getWelcomeMessage = this.getWelcomeMessage.bind(this)
         this.handleSuccesfullResponse = this.handleSuccesfullResponse.bind(this)
         this.handleErrorResponse = this.handleErrorResponse.bind(this) 
 
@@ -30,13 +27,7 @@ class WelcomeComponent extends Component{
             </>
 
         )
-    }
-
-    getWelcomeMessage(event){
-        HelloWorldService.executeHelloWorldPathService(this.props.match.params.name)
-        .then(response => this.handleSuccesfullResponse(response))
-        .catch(error => this.handleErrorResponse(error))
-    }
+    }    
 
     handleSuccesfullResponse(response) {
         this.setState({servicemessage: response.data.message})

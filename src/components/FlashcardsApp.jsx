@@ -8,14 +8,14 @@ import ErrorComponent from './ErrorComponent'
 import HeaderComponent from './HeaderComponent'
 import FooterComponent from './FooterComponent'
 import AuthenticatedRoute from './AuthenticatedRoute'
-import ListFlashcardsComponent from './ListFlashcardssComponent'
+import ListFlashcardsComponent from './ListFlashcardsComponent'
 import FlashcardsComponent from './FlashcardsComponent'
 
 
-class TodoApp extends Component{
+class FlashcardsAppApp extends Component{
     render(){
         return (
-            <div className="TodoApp">
+            <div className="FlashcardsApp">
                 <Rourter>
                     <HeaderComponent/>
                     <Switch>
@@ -38,4 +38,4 @@ class TodoApp extends Component{
     }
 }
 
-export default TodoApp
+export default FlashcardsAppApp

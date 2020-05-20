@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-class TodoDataService {
+class FlashcardsDataService {
 
     //retrieveAllFlashcards2(username){
       //  return axios.get(`http://localhost:8080/flashcards`)
@@ -22,4 +22,4 @@ class TodoDataService {
 
 }
 
-export default new TodoDataService()
+export default new FlashcardsDataService()

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import moment from 'moment'
 import { Formik, Form, Field } from 'formik'
 
-class TodoComponent extends Component {
+class FlashcardsComponent extends Component {
 
     constructor(props){
         super(props)
@@ -19,7 +19,7 @@ class TodoComponent extends Component {
 
          return (
              <div>
-                 <h1>Todo</h1>
+                 <h1>Flashcard</h1>
                  <div className="container">
                     <Formik
                         initialValues = {{
@@ -49,4 +49,4 @@ class TodoComponent extends Component {
      }
 }
 
-export default TodoComponent
+export default FlashcardsComponent

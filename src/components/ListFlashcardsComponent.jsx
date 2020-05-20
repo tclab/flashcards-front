@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import FlashcardsDataService from '../api/FlashcardsDataService'
 import AuthenticationService from '../api/AuthenticationService'
 
-class ListTodosComponent extends Component{
+class ListFlashcardsComponent extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -27,7 +27,7 @@ class ListTodosComponent extends Component{
         .then(
             response => {
                 this.setState({
-                    message: 'Todo deleted successfully!'
+                    message: 'Flashcard deleted successfully!'
                 })
                 this.refreshFlashcards()
             }
@@ -95,4 +95,4 @@ class ListTodosComponent extends Component{
     }
 }
 
-export default ListTodosComponent
+export default ListFlashcardsComponent

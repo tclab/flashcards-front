@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import {HEROKU_API_URL} from '../Constants'
 
 class FlashcardsDataService {
 
@@ -8,16 +8,26 @@ class FlashcardsDataService {
     //}
 
     retrieveAllFlashcards(username){
-        return axios.get(`https://tclab-flashcards-back.herokuapp.com/flashcards`)
+        return axios.get(`${HEROKU_API_URL}/flashcards`)
+    }
+
+    retrieveFlashcardById(id){
+        return axios.get(`${HEROKU_API_URL}/flashcards/get/${id}`)
     }
 
 
-    deleteFlashcard(username, todoid){
-        return axios.delete(`http://localhost:8080/users/${username}/todos/${todoid}`)
+    deleteFlashcard(username, id){
+        return axios.delete(`${HEROKU_API_URL}/flashcards/${id}`)
     }
 
-    updateFlashcard(username, todoid){
-        return axios.put(`http://localhost:8080/users/${username}/todos/${todoid}`)
+    createFlashcard(flashcard){
+        console.log(flashcard)
+        return axios.post(`${HEROKU_API_URL}/flashcards`, flashcard)
+    }
+
+    updateFlashcard(flashcard){
+        console.log(flashcard)
+        return axios.put(`${HEROKU_API_URL}/flashcards`, flashcard)
     }
 
 }

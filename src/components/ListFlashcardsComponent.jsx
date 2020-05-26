@@ -13,11 +13,17 @@ class ListFlashcardsComponent extends Component{
         this.handleUpdateBtn = this.handleUpdateBtn.bind(this)
         this.handleDeleteBtn = this.handleDeleteBtn.bind(this)
         this.refreshFlashcards = this.refreshFlashcards.bind(this)
+        this.handleAddBtn = this.handleAddBtn.bind(this)
     }
 
     // Caled just after the component was mounted
     componentDidMount(){
         this.refreshFlashcards()
+    }
+
+    handleAddBtn(){
+        console.log(`Create`)
+        this.props.history.push('/flashcards/new')
     }
 
     handleDeleteBtn(id){
@@ -41,7 +47,7 @@ class ListFlashcardsComponent extends Component{
 
     handleReviewBtn(id){
         console.log(`Update id: ${id}`)
-        this.props.history.push(`/flashcards/${id}`)
+        this.props.history.push(`/flashcards/review/${id}`)
     }
 
     refreshFlashcards(){
@@ -89,6 +95,9 @@ class ListFlashcardsComponent extends Component{
                             }
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button className="btn btn-success" onClick={() => this.handleAddBtn()} >Add</button>
+                    </div>
                 </div>
             </div>
         )

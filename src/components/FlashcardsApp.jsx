@@ -10,6 +10,7 @@ import FooterComponent from './FooterComponent'
 import AuthenticatedRoute from './AuthenticatedRoute'
 import ListFlashcardsComponent from './ListFlashcardsComponent'
 import FlashcardsComponent from './FlashcardsComponent'
+import FlashcardsReviewComponent from './FlashcardsReviewComponent'
 
 
 class FlashcardsAppApp extends Component{
@@ -22,6 +23,8 @@ class FlashcardsAppApp extends Component{
                         <Route path="/" exact component={LoginComponent}/>
                         <Route path="/login" component={LoginComponent}/>
                         <AuthenticatedRoute path="/welcome/:name" component={WelcomeComponent}/>
+                        <AuthenticatedRoute path="/flashcards/review/:id" component={FlashcardsReviewComponent}/>
+                        <AuthenticatedRoute path="/flashcards/new" component={FlashcardsComponent}/>
                         <AuthenticatedRoute path="/flashcards/:id" component={FlashcardsComponent}/>
                         <AuthenticatedRoute path="/flashcards" component={ListFlashcardsComponent}/>
                         <AuthenticatedRoute path="/logout" component={LogoutComponent}/>
